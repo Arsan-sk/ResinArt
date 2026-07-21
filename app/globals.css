@@ -1,0 +1,478 @@
+@import "tailwindcss";
+
+/* ===================================================================
+   Zainy Resin Art — Design System
+   Premium neutral palette with luxury proportions.
+   =================================================================== */
+
+:root {
+  /* Brand Colors — PRP1 specification */
+  --ivory: #FAF8F5;
+  --warm-beige: #EDE6DB;
+  --soft-gold: #C5A880;
+  --pearl-white: #FFFFFF;
+  --charcoal: #2C2C2C;
+
+  /* Semantic Colors */
+  --background: var(--ivory);
+  --foreground: var(--charcoal);
+  --surface: var(--pearl-white);
+  --muted: #9A948C;
+  --muted-foreground: #706A62;
+  --border: #E8E2D9;
+  --accent: var(--soft-gold);
+  --accent-foreground: #FFFFFF;
+
+  /* Collection Accent Colors */
+  --accent-couples: #D4848C;
+  --accent-friendship: #7BA7C2;
+  --accent-wedding: #E8DCC8;
+  --accent-luxury: #1A1A1A;
+  --accent-arabic: #2D6B4F;
+  --accent-floral: #B5838D;
+  --accent-pastel: #B8A9C9;
+  --accent-ocean: #4A9BAD;
+
+  /* Typography Scale — Fluid using clamp() */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.775rem + 0.1875vw, 0.875rem);
+  --text-base: clamp(0.9375rem, 0.9rem + 0.1875vw, 1rem);
+  --text-lg: clamp(1.0625rem, 1rem + 0.3125vw, 1.1875rem);
+  --text-xl: clamp(1.1875rem, 1.05rem + 0.6875vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.75rem);
+  --text-4xl: clamp(2.25rem, 1.7rem + 2.75vw, 3.75rem);
+  --text-5xl: clamp(2.75rem, 2rem + 3.75vw, 5rem);
+
+  /* Spacing — Luxury breathing room */
+  --space-xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+  --space-sm: clamp(0.75rem, 0.6rem + 0.75vw, 1.25rem);
+  --space-md: clamp(1.25rem, 1rem + 1.25vw, 2rem);
+  --space-lg: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+  --space-xl: clamp(3rem, 2rem + 5vw, 6rem);
+  --space-2xl: clamp(4rem, 3rem + 5vw, 8rem);
+  --space-section: clamp(5rem, 4rem + 5vw, 10rem);
+
+  /* Easing Curves — Organic, resin-like motion */
+  --ease-luxury: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Shadows — Soft, natural */
+  --shadow-sm: 0 1px 3px rgba(44, 44, 44, 0.04), 0 1px 2px rgba(44, 44, 44, 0.06);
+  --shadow-md: 0 4px 12px rgba(44, 44, 44, 0.06), 0 2px 4px rgba(44, 44, 44, 0.04);
+  --shadow-lg: 0 12px 40px rgba(44, 44, 44, 0.08), 0 4px 12px rgba(44, 44, 44, 0.04);
+  --shadow-xl: 0 24px 60px rgba(44, 44, 44, 0.1), 0 8px 20px rgba(44, 44, 44, 0.06);
+  --shadow-glow: 0 0 30px rgba(197, 168, 128, 0.15);
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: 16px;
+
+  /* Navbar height */
+  --navbar-height: 72px;
+}
+
+/* Tailwind Theme Integration */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ivory: var(--ivory);
+  --color-warm-beige: var(--warm-beige);
+  --color-soft-gold: var(--soft-gold);
+  --color-pearl-white: var(--pearl-white);
+  --color-charcoal: var(--charcoal);
+
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-inter);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-glow: var(--shadow-glow);
+}
+
+/* ===================================================================
+   Base Styles
+   =================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===================================================================
+   Typography — Timeless & Elegant
+   =================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), 'Georgia', serif;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: inherit;
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+
+p {
+  max-width: 65ch;
+  line-height: 1.8;
+}
+
+/* ===================================================================
+   Links & Buttons
+   =================================================================== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 200ms var(--ease-gentle);
+}
+
+/* Primary CTA Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: var(--charcoal);
+  color: var(--pearl-white);
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 160ms var(--ease-luxury),
+              box-shadow 300ms var(--ease-gentle),
+              background-color 300ms var(--ease-gentle);
+}
+
+.btn-primary:hover {
+  background-color: #1A1A1A;
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Secondary / Ghost CTA Button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: transparent;
+  color: var(--charcoal);
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 160ms var(--ease-luxury),
+              border-color 300ms var(--ease-gentle),
+              box-shadow 300ms var(--ease-gentle);
+}
+
+.btn-secondary:hover {
+  border-color: var(--soft-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:active {
+  transform: scale(0.97);
+}
+
+/* Gold accent button */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: var(--soft-gold);
+  color: var(--pearl-white);
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 160ms var(--ease-luxury),
+              box-shadow 300ms var(--ease-gentle),
+              background-color 300ms var(--ease-gentle);
+}
+
+.btn-gold:hover {
+  background-color: #B8986E;
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-gold:active {
+  transform: scale(0.97);
+}
+
+/* ===================================================================
+   Glass Morphism
+   =================================================================== */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Solid fallback for reduced transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: var(--ivory);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* ===================================================================
+   Section Spacing
+   =================================================================== */
+
+.section {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.section-inner {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===================================================================
+   Reduced Motion
+   =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================================================
+   Selection Color
+   =================================================================== */
+
+::selection {
+  background-color: var(--soft-gold);
+  color: var(--pearl-white);
+}
+
+/* ===================================================================
+   Scrollbar — Premium minimal
+   =================================================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* ─── Masonry Grid Container & Items ─── */
+.masonry-container {
+  column-count: 1;
+  column-gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .masonry-container {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-container {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Fade-in animation for gallery items ─── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out both;
+}
+
+/* ─── Loading Sequence Keyframes & Animation Helpers ─── */
+@keyframes float-blob-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+@keyframes float-blob-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-50px, 40px) scale(0.9);
+  }
+  66% {
+    transform: translate(30px, -30px) scale(1.15);
+  }
+}
+
+@keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-counter-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pulse-inner {
+  0%, 100% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float-sparkle {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-30px) scale(1.2);
+  }
+  100% {
+    transform: translateY(-60px) scale(0);
+    opacity: 0;
+  }
+}
+
+.animate-blob-1 {
+  animation: float-blob-1 10s ease-in-out infinite;
+}
+
+.animate-blob-2 {
+  animation: float-blob-2 12s ease-in-out infinite;
+}
+
+.animate-spin-cw {
+  animation: spin-clockwise 8s linear infinite;
+}
+
+.animate-spin-ccw {
+  animation: spin-counter-clockwise 12s linear infinite;
+}
+
+.animate-pulse-inner {
+  animation: pulse-inner 2s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: float-sparkle var(--sparkle-duration, 4s) ease-in-out infinite;
+}
+
