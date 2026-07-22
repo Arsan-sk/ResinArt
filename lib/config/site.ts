@@ -91,7 +91,7 @@ export const siteConfig = {
   // Footer
   footer: {
     tagline: "Handmade with ❤️ by Zainy.",
-    copyright: "© 2025 Zainy Resin Art. All rights reserved.",
+    copyright: "© 2026 Zainy Resin Art. All rights reserved.",
   },
 } as const;
 

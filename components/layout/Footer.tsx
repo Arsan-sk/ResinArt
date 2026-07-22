@@ -95,8 +95,21 @@ export function Footer() {
               by Zainy.
             </p>
           </div>
-        </div>
       </div>
+          <div className="mt-6 text-center border-t border-pearl-white/5 pt-4">
+            <p className="text-[11px] text-pearl-white/30 tracking-wide mx-auto max-w-none text-center">
+              Website developed by{" "}
+              <a
+                href="https://arsansk.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative text-pearl-white/50 hover:text-soft-gold font-bold transition-colors duration-300 after:absolute after:bottom-[-2px] after:left-0 after:h-[1.5px] after:w-0 after:bg-soft-gold hover:after:w-full after:transition-all after:duration-300"
+              >
+                Saikh Mohd Arsan
+              </a>
+            </p>
+          </div>
+        </div>
     </footer>
   );
 }
