@@ -13,7 +13,7 @@ export const siteConfig = {
 
   // Contact — hardcoded to prevent server/client hydration mismatch
   whatsapp: {
-    number: "+918329439152",
+    number: "+919284086903",
     defaultMessage:
       "Hello Zainy! I'd like to order a personalized resin keychain.",
   },
