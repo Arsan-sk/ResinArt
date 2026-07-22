@@ -4,14 +4,51 @@ import { motion, useReducedMotion } from "framer-motion";
 import { InstagramIcon } from "@/components/common/SocialIcons";
 import { siteConfig } from "@/lib/config/site";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { cn } from "@/lib/utils";
 
 const mockPosts = [
-  { id: "post-1", aspect: "aspect-square", label: "Gold foil lettering detail" },
-  { id: "post-2", aspect: "aspect-square", label: "Curing process layer 1" },
-  { id: "post-3", aspect: "aspect-square", label: "Preserved rose petals" },
-  { id: "post-4", aspect: "aspect-square", label: "Matching couple set keychains" },
-  { id: "post-5", aspect: "aspect-square", label: "Sanding edges craft detail" },
-  { id: "post-6", aspect: "aspect-square", label: "Completed premium orders package" },
+  {
+    id: "post-1",
+    aspect: "aspect-square",
+    label: "Gold foil lettering detail",
+    url: "https://www.instagram.com/p/Davje73NBdk/?utm_source=ig_web_copy_link",
+    isDark: true
+  },
+  {
+    id: "post-2",
+    aspect: "aspect-square",
+    label: "Curing process layer 1",
+    url: "https://www.instagram.com/p/Da21inMvFE6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    isDark: false
+  },
+  {
+    id: "post-3",
+    aspect: "aspect-square",
+    label: "Preserved rose petals",
+    url: "https://www.instagram.com/p/DaymPrASaDM/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    isDark: false
+  },
+  {
+    id: "post-4",
+    aspect: "aspect-square",
+    label: "Matching couple set keychains",
+    url: "https://www.instagram.com/p/DavXdAEPzPU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    isDark: false
+  },
+  {
+    id: "post-5",
+    aspect: "aspect-square",
+    label: "Sanding edges craft detail",
+    url: "https://www.instagram.com/p/Da_HOXutyqM/?utm_source=ig_web_copy_link",
+    isDark: false
+  },
+  {
+    id: "post-6",
+    aspect: "aspect-square",
+    label: "Completed premium orders package",
+    url: "https://www.instagram.com/p/Davje73NBdk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    isDark: true
+  },
 ];
 
 /**
@@ -53,10 +90,13 @@ export function InstagramShowcase() {
           {mockPosts.map((post, i) => (
             <ScrollReveal key={post.id} delay={i * 0.05}>
               <motion.a
-                href={siteConfig.instagram.url}
+                href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block aspect-square rounded-lg overflow-hidden bg-warm-beige/30 border border-border/30"
+                className={cn(
+                  "group relative block aspect-square rounded-lg overflow-hidden border border-border/30",
+                  post.isDark ? "bg-[#0a0a0a]" : "bg-[#fcfcfa]"
+                )}
                 whileHover={shouldReduceMotion ? {} : { y: -2 }}
               >
                 {/* Visual Placeholder for posts with subtle gold tones */}
@@ -64,6 +104,23 @@ export function InstagramShowcase() {
                   className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
                   style={{
                     backgroundImage: `linear-gradient(135deg, var(--warm-beige) 0%, var(--ivory) 100%)`,
+                  }}
+                />
+
+                {/* Real downloaded post image */}
+                <img
+                  src={`/instagram/${post.id}.jpg`}
+                  alt={post.label}
+                  className="absolute inset-0 w-full h-full object-contain z-0 transition-transform duration-700 ease-out group-hover:scale-105"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    objectPosition: "center",
+                  }}
+                  loading="lazy"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
                   }}
                 />
 
